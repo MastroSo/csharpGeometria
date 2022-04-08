@@ -1,14 +1,27 @@
-﻿using Geometria;
-
-Console.WriteLine("Inserisci base del rettangolo");
-int baseInputUtente = int.Parse(Console.ReadLine());
+﻿using csharpGeometria;
 
 
-Console.WriteLine("Inserisci altezza del rettangolo");
-int altezzaInputUtente = int.Parse(Console.ReadLine());
+Console.WriteLine("Ciao Bell!\n");
 
-rettangolo rettangolo1 = new rettangolo(baseInputUtente, altezzaInputUtente);
+//Primo Rettangolo
+Console.WriteLine("Inserire la base del rettangolo: ");
+int larghezza = Convert.ToInt32(Console.ReadLine()); //larghezza = base
+Console.WriteLine("Inserire l'altezza del rettangolo: ");
+int altezza = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Area:" + rettangolo1.calcoloArea());
+Rettangolo rettangolo = new Rettangolo(larghezza, altezza);
 
-}
+rettangolo.stampaRettangolo();
+
+rettangolo.Disegna();
+
+//Secondo Rettangolo
+Console.WriteLine("Inserire la base del rettangolo: ");
+larghezza = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Inserire l'altezza del rettangolo: ");
+altezza = Convert.ToInt32(Console.ReadLine());
+Rettangolo nuovoRettangolo = new Rettangolo(larghezza, altezza);
+
+nuovoRettangolo.stampaRettangolo();
+
+nuovoRettangolo.Disegna();

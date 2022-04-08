@@ -8,48 +8,61 @@ namespace csharpGeometria
 {
     internal class Rettangolo
     {
-        public int baseRettangolo;
-        public int altezzaRettangolo;
+        private int baseRettangolo; //attributi
+        private int altezzaRettangolo;
 
-        //----- Costruttore-----
-        public Rettangolo(int baseRettangolo, int altezzaRettangolo)
-        {
-            this.baseRettangolo = baseRettangolo;
-            this.altezzaRettangolo = altezzaRettangolo;
+        public Rettangolo(int x, int y) // x = base, y = altezza
+        { //costruttore
+            this.baseRettangolo = x;
+            this.altezzaRettangolo = y;
         }
 
-        // Metodo Calcolo
-
-        public int calcoloArea()
+        private int calcolaArea() //metodo per calcolare l'area
         {
-            int risultato = baseRettangolo * altezzaRettangolo;
-            return risultato;
+            return baseRettangolo * altezzaRettangolo;
         }
 
-
-
-        public int calcoloPerimetro()
+        private int calcolaPerimetro() //metodo per calcolare il perimetro
         {
-            int risultato = (baseRettangolo + altezzaRettangolo) * 2;
-            return risultato;
-
-
+            return (baseRettangolo + altezzaRettangolo) * 2;
         }
 
+        public void stampaRettangolo()
+        {
+            Console.WriteLine("—— Rettangolo1 ——");
+            Console.WriteLine("Base: " + baseRettangolo + "cm");
+            Console.WriteLine("Altezza: " + altezzaRettangolo + "cm");
+            Console.WriteLine("Perimetro: " + calcolaPerimetro() + "cm");
+            Console.WriteLine("Area: " + calcolaArea() + "cm2");
+            Console.WriteLine("-----------------");
+        }
 
+        public void Disegna()
+        {
+            string unitaX = "--";
+            string unitaY = "|";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+            Console.Write(" ");
+            for (int i = 0; i < baseRettangolo - 1; i++) //lato superiore
+            {
+                Console.Write(unitaX);
+            }
+            Console.WriteLine(unitaX);
+            for (int i = 0; i < altezzaRettangolo; i++)
+            {
+                Console.Write(unitaY);
+                for (int j = 0; j < baseRettangolo; j++) //lati laterali
+                {
+                    Console.Write("  ");
+                }
+                Console.WriteLine(unitaY);
+            }
+            Console.Write(" ");
+            for (int i = 0; i < baseRettangolo - 1; i++) //lato inferiore
+            {
+                Console.Write(unitaX);
+            }
+            Console.WriteLine(unitaX);
+        }
     }
 }
